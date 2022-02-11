@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.justify-right {
+	justify-content:end;
+  display:flex;
+}
+
+.justify-left {
+	justify-content:start;
+}
+
+button {
+	margin: 3px;
+}

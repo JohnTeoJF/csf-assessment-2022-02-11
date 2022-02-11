@@ -1,14 +1,17 @@
-export interface RecipeSummary {
-	recipeId: string
-	title: string
+import { v4 as uuidv4 } from 'uuid';
+
+export interface RecipeSummary{
+  recipeId?: string
+  title: string
 }
 
-export interface Recipe extends RecipeSummary {
+export interface IngredientItem{
+  ingredient: string
+}
+
+export interface Recipe extends RecipeSummary , IngredientItem {
 	image: string
 	instruction: string
-	ingredients: string []
-}
+  ingredients:IngredientItem[]
 
-export interface Guard {
-	evaluate(): boolean
 }

@@ -1,1 +1,31 @@
-<p>recipe-detail works!</p>
+<h2> recipe details</h2>
+
+<table>
+  <tr>
+    <td>
+    </td>
+    <td>
+      <div>
+        Title: {{ recipe?.title }}
+      </div>
+
+      <div>
+
+        Image : {{ recipe?.image }}
+        </div>
+
+      <div>
+
+      Instruction:  {{ recipe?.instruction }}
+      </div>
+
+      <div>
+
+        Ingredients  {{ recipe?.instruction }}
+        </div>
+
+    </td>
+  </tr>
+</table>
+
+<button type="button" [routerLink]="['/']">Back</button>

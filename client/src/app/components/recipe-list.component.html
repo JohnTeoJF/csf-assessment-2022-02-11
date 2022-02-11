@@ -1,1 +1,11 @@
-<p>recipe-list works!</p>
+<h1>This is RecipeList with ADD button</h1>
+
+<h1>Recipe List here</h1>
+<div class="justify-right">
+	<button [routerLink]="['/add']">Add</button>
+</div>
+
+
+	<div *ngFor="let r of recipeList" [routerLink]="['/recipe', r.recipeId]" class="item">
+		{{ t.title }}
+	</div>

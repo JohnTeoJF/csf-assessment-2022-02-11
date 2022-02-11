@@ -1,1 +1,52 @@
-<p>recipe-add works!</p>
+<h1>RecipeAdd : Form to add new recipes</h1>
+
+<form [formGroup]="recipeForm">
+  <div>
+    <h1>Title</h1>
+    <input type="text" size="30" [formControlName]="'title'" />
+  </div>
+
+  <div>
+    <h1>Instruction</h1>
+    <textarea cols="40" rows="3" formControlName="instruction"></textarea>
+  </div>
+
+  <div>
+    <h1>
+      Ingredients
+      <button type="button" (click)="addLineItem()" #submitButton>Add</button>
+    </h1>
+  </div>
+
+  <h3 class="warning" *ngIf="ingredientItemsArrray.controls.length <= 0">
+    Please add more ingredients
+  </h3>
+  <!--Start of Ingredients List-->
+
+  <table style="margin-top: 5vh; margin-bottom: 2vh" *ngIf="ingredientItemsArrray.controls.length > 0">
+    <tbody formArrayName="ingredients">
+      <tr *ngFor="let lineGrp of ingredientItemsArrray.controls; let i = index" [formGroup]="lineGrp">
+        <td>
+          <input type="text" size="50" formControlName="ingredient" />
+        </td>
+        <td>
+          <button type="button" (click)="deleteLineItem(i)">X</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!--End of Ingredients List-->
+  <div>
+    <h1>Image</h1>
+    <input type="text" size="30" formControlName="image" />
+  </div>
+
+  <table>
+    <tr></tr>
+    <tr>
+      <td><button type="button" [routerLink]="['/']">Back</button></td>
+      <td><button type="button" [disabled]="!isValid()"(click)="uploadRecipe()">Add Recipe</button></td>
+    </tr>
+  </table>
+</form>
