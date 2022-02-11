@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RecipeListComponent } from './components/recipe-list.component';
 import { RecipeDetailComponent } from './components/recipe-detail.component';
 import { RecipeAddComponent } from './components/recipe-add.component';
+import { RecipeService } from './services/Recipe.service';
 
 const appRoutes: Routes = [
 	{ path: '', component: RecipeListComponent },
