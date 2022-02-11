@@ -9,8 +9,8 @@ export class RecipeService {
 
   constructor(private http: HttpClient) { }
 
-  url ="http://localhost:8080/"
-  //url = "/"
+ // url ="http://localhost:8080/"
+  url = "/"
 
   //Ping server to GET all recipe summary
   getAllRecipes(): Promise<Recipe> {

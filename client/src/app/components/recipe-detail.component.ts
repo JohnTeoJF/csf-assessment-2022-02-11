@@ -21,6 +21,7 @@ export class RecipeDetailComponent implements OnInit {
 
     this.id = this.activatedRoute.snapshot.params['recipeId']
     console.info("recipeId is >> " +this.id)
+
     this.recipeSvc.getRecipe(this.id)
     .then(result=>{
       this.recipe=result
@@ -29,6 +30,8 @@ export class RecipeDetailComponent implements OnInit {
     .catch(error=>{
       console.info(error.error)
     })
+
+    console.info("before exit init")
   }
 
 }

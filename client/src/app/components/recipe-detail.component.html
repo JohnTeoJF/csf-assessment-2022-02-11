@@ -11,7 +11,7 @@
 
       <div>
 
-        Image : {{ recipe?.image }}
+       Image : {{ recipe?.image }}
         </div>
 
       <div>
@@ -19,10 +19,9 @@
       Instruction:  {{ recipe?.instruction }}
       </div>
 
-      <div>
-
-        Ingredients  {{ recipe?.instruction }}
-        </div>
+      <ul *ngFor="let ingredient of recipe?.ingredients">
+        <li>{{ingredient}}</li>
+    </ul>
 
     </td>
   </tr>

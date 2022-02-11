@@ -21,8 +21,8 @@ export class RecipeAddComponent implements OnInit {
   ingredientItemsArrray!: FormArray
 
   @Input()
-  //recipe: Partial<Recipe> = {}
-
+  recipe: Partial<Recipe> = {}
+/*
   recipe: Partial<Recipe> = {
     title: 'Apple pie',
     image: 'abc.jpg',
@@ -32,7 +32,7 @@ export class RecipeAddComponent implements OnInit {
       { ingredient: 'dough' },
     ]
   }
-
+*/
   @Output()
   onAddRecipe = new Subject<Recipe>()
 
@@ -84,10 +84,23 @@ export class RecipeAddComponent implements OnInit {
     }
 
     console.log("Form valid and clicked on Add Recipe")
+
     const recipe = this.recipeForm.value as Recipe
-    this.recipeForm = this.createRecipeForm();
-    this.ingredientItemsArrray = this.recipeForm.get('ingredients') as FormArray
-    this.onAddRecipe.next(recipe)
+
+    console.info(recipe)
+
+    this.recipeSvc.uploadRecipe(recipe)
+    .then(result=>{
+      const info = result
+      console.info("POST >>>>>",info)
+      this.router.navigate(['/'])
+
+    })
+    .catch(error=>{
+      const errorMsg  = error.error
+      console.warn("Error ",errorMsg)
+    })
+
 
     console.log("payload is >> "+recipe)
 
