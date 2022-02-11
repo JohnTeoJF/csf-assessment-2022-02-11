@@ -30,7 +30,7 @@ const appRoutes: Routes = [
 	  FormsModule, ReactiveFormsModule,
 	  RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ RecipeService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
